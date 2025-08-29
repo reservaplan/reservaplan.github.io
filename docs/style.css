@@ -1,0 +1,867 @@
+/* ======== ESTILOS GENERALES Y VARIABLES ======== */
+:root {
+    --primary-color: #1a7bba;
+    --secondary-color: #343a40;
+    --background-color: #ffffff;
+    --light-gray-color: #f8f9fa;
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    color: var(--secondary-color);
+    background-color: var(--background-color);
+}
+
+/* ======== HEADER Y NAVEGACIÓN ======== */
+.site-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.top-bar {
+    background-color: #f0f0f0;
+    padding: 0.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-bar-left, .top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.top-bar a {
+    color: #555;
+    text-decoration: none;
+}
+
+.top-bar i {
+    color: var(--primary-color);
+    margin-right: 0.3rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 5%;
+}
+
+.logo img {
+    height: 60px;
+    vertical-align: middle;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.flag {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#menu-icon {
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+
+/* ======== SECCIONES PRINCIPALES ======== */
+main {
+    padding-top: 145px; /* Evita que el contenido se oculte detrás del header fijo */
+}
+
+.hero {
+    height: 40vh; /* Altura para escritorio */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/3762286/pexels-photo-3762286.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 2rem 5%;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem; /* Ligeramente más pequeño para la altura reducida */
+    margin: 0;
+    line-height: 1.2;
+}
+
+.hero-content h2 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin: 0.5rem 0 1rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px; /* Evita que el texto sea demasiado ancho */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #f29335;
+    border-color: #c6782a;
+}
+
+@media (max-width: 992px) {
+    main { padding-top: 85px; /* Ajustado para el header sin top-bar */ }
+    .top-bar { display: none; }
+    
+    .language-selector-desktop { display: none; }
+    .language-selector-mobile { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #f0f0f0; }
+    
+    .nav-links { position: absolute; top: 100%; left: -100%; width: 100%; background-color: white; flex-direction: column; text-align: center; padding: 1rem 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: left 0.3s ease; }
+    .nav-links.active { left: 0; }
+    #menu-icon { display: block; }
+
+    /* Ajustes responsive para el Hero en Tablets */
+    .hero {
+        height: 50vh; /* Más altura en tablets */
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content h2 {
+        font-size: 1.4rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes responsive para el Hero en Móviles */
+    .hero {
+        height: 60vh; /* Aún más altura en móviles para que el texto respire */
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+}
+
+.booking-bar {
+    padding: 2rem 5%;
+    background-color: var(--light-gray-color);
+}
+
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    align-items: flex-end;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.form-group label { font-weight: 600; }
+.form-group input, .form-group select { 
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.booking-form .btn-primary {
+    width: 100%;
+    grid-column: 1 / -1; /* Ocupa todas las columnas en la primera fila de grid */
+}
+/*TouresPLan - NO USADOS*/
+/*.featured-tours {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.tour-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tour-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tour-info { padding: 1.5rem; }
+.tour-info h3 { margin-top: 0.5rem; }
+.tour-info .price { font-size: 1.2rem; font-weight: bold; color: var(--primary-color); margin-top: 1rem; }*/
+
+/*TouresPLan - NO USADOS*/
+
+/* ======== FOOTER ======== */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 5%;
+}
+
+/* ======== DISEÑO RESPONSIVE ======== */
+@media (min-width: 993px) {
+    .booking-form {
+        grid-template-columns: repeat(5, 1fr); /* 4 campos + 1 botón */
+    }
+    .booking-form .btn-primary {
+        grid-column: auto; /* Restaura el comportamiento normal en escritorio */
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: left 0.3s ease;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        padding: 0.5rem 0;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content h2 { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 2rem; }
+}
+
+/* ======== AÑADE ESTOS ESTILOS A TU ARCHIVO CSS ======== */
+
+/* 1. ESTILOS PARA LA NUEVA BARRA SUPERIOR */
+.top-bar {
+    background-color: #f0f0f0;
+    padding: 0.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-bar-left, .top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.top-bar a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.top-bar a:hover {
+    color: var(--primary-color);
+}
+
+.top-bar i {
+    color: var(--primary-color);
+    margin-right: 0.3rem;
+    vertical-align: middle;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.social-icons i {
+    font-size: 1.2rem;
+    margin-right: 0;
+}
+
+/* 2. MODIFICACIONES A ESTILOS EXISTENTES */
+/* Reemplaza tu antigua regla 'header' por 'site-header' */
+.site-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Y ajusta el padding-top de 'main' para dejar espacio a la nueva barra */
+main {
+    padding-top: 110px; /* Ajustado para el header completo */
+}
+
+/* 3. MEJORAS RESPONSIVE PARA LA BARRA SUPERIOR */
+@media (max-width: 992px) {
+    /* 1. RE-ACTIVAMOS LA BARRA SUPERIOR Y LA HACEMOS MÁS COMPACTA */
+    .top-bar {
+        display: flex; /* Aseguramos que sea visible */
+        justify-content: center;
+        gap: 1rem;
+        padding: 0.4rem 5%;
+        font-size: 0.75rem; /* Reducimos el tamaño de la fuente */
+    }
+
+    /* Ocultamos elementos menos importantes en la barra superior para ahorrar espacio */
+    .follow-us, .top-bar-left span:first-child {
+        display: none;
+    }
+
+    /* 2. AJUSTAMOS EL ESPACIO SUPERIOR DEL CONTENIDO PRINCIPAL */
+    main {
+        /* Aumentamos el padding para dejar espacio a la barra superior + nav */
+        padding-top: 115px; 
+    }
+
+    /* 3. MANTENEMOS LA LÓGICA DEL MENÚ MÓVIL Y LAS BANDERAS */
+    .language-selector-desktop {
+        display: none;
+    }
+    
+    .language-selector-mobile {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: left 0.3s ease;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        padding: 0.5rem 0;
+    }
+    
+    #menu-icon {
+        display: block;
+    }
+
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content h2 { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 2rem; }
+}
+/*BOOKING BAR*/
+/* ================================================================ */
+/* ===========      ESTILOS PARA SELECTOR DE HUÉSPEDES      =========== */
+/* ================================================================ */
+
+.guests-container {
+    position: relative; /* Necesario para posicionar el dropdown */
+}
+
+.guests-input-display {
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    user-select: none; /* Evita que el texto se seleccione al hacer clic */
+}
+
+.guests-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 250px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    padding: 1rem;
+    z-index: 10;
+    margin-top: 5px;
+    display: none; /* Oculto por defecto */
+}
+
+.guests-dropdown.active {
+    display: block; /* Se muestra con la clase 'active' */
+}
+
+.counter-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.counter-row:last-child {
+    margin-bottom: 0;
+}
+
+.counter-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.counter-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter-btn:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+/*BOOKING BAR*/
+
+/*PLANES DE ALOJAMIENTOS*/
+/* ================================================================ */
+/* =========   NUEVOS ESTILOS PARA LA SECCIÓN DE ALOJAMIENTOS   ========= */
+/* ================================================================ */
+
+/* Contenedor principal de la sección de alojamientos */
+.alojamientos-container {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+/* Cuadrícula que organiza las tarjetas de planes */
+.alojamientos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Estilos individuales para cada tarjeta de plan (ya los tenías, pero los incluimos aquí para asegurar) */
+.plan-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.plan-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.plan-info {
+    padding: 1.5rem;
+}
+
+.plan-info .location {
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.plan-info h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.plan-info .type-badge {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.plan-info .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 1rem;
+}
+/*PLANES DE ALOJAMIENTOS*/
+
+/* ================================================================ */
+/* ===========      ESTILOS PARA PÁGINA DE DETALLE      =========== */
+/* ================================================================ */
+.detalle-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Apilado por defecto para móviles */
+    gap: 2rem;
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.detalle-galeria img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.detalle-info h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.detalle-info .location {
+    font-size: 1.1rem;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.detalle-info .price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.detalle-info p {
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.detalle-info h3 {
+    margin-top: 2rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.amenities-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.amenities-list li {
+    background-color: #e9f7ec;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Vista para escritorio (2 columnas) */
+@media (min-width: 768px) {
+    .detalle-container {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}
+
+/*PAGINA DETALLE*/
+
+/* ================================================================ */
+/* =========== AÑADE ESTOS ESTILOS PARA EL NUEVO FOOTER =========== */
+/* ================================================================ */
+
+.site-footer {
+    background-color: #222222;
+    color: #a9a9a9;
+    padding: 4rem 5% 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #444;
+}
+
+.footer-column h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo-footer {
+    color: var(--primary-color) !important;
+    font-size: 1.5rem !important;
+    font-weight: 700;
+}
+
+.logo-footer img {
+    height: 40px; /* Puedes hacerlo un poco más pequeño si quieres */
+    width: auto;
+}
+
+.footer-column p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.footer-column p i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links a {
+    color: #a9a9a9;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.8rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.quick-links a:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.1);
+}
+
+.newsletter-form {
+    display: flex;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.newsletter-form input[type="email"] {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #333;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 50px;
+}
+
+.newsletter-form button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.terms input {
+    margin-right: 0.5rem;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-socials a {
+    color: #a9a9a9;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+.back-to-top {
+    background-color: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+/* ================================================================ */
+/* =========== ESTILOS PARA EL BOTÓN FLOTANTE DE WHATSAPP =========== */
+/* ================================================================ */
+
+.whatsapp-float-btn {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float-btn:hover {
+    transform: scale(1.1);
+}
