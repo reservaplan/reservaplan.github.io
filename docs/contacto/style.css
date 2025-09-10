@@ -208,12 +208,12 @@ main {
     align-items: flex-start;
 }
 
-.get-in-touch h2 { font-size: 2.5rem; }
+.get-in-touch h2 { font-size: 2rem; }
 .get-in-touch p { line-height: 1.7; }
-.form-container { background-color: #f6f9f7; padding: 2.5rem; border-radius: 12px; }
+.form-container { background-color: #f6f9f7; padding: 1.5rem; border-radius: 12px; }
 .form-container h3 { font-size: 1.8rem; }
 .form-notice { font-size: 0.9rem; color: #777; margin-bottom: 2rem; }
-.input-group { position: relative; margin-bottom: 1.5rem; }
+.input-group { position: relative; margin-bottom: 1rem; }
 .input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); }
 .input-group input, .input-group textarea { width: 100%; padding: 1rem 1rem 1rem 2.5rem; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
 .form-container .btn-primary { width: 100%; }
@@ -425,4 +425,19 @@ main {
 
 .whatsapp-float-btn:hover {
     transform: scale(1.1);
+}
+
+/* ================================================================ */
+/* ===========     CORRECCIÓN RESPONSIVE PARA RECAPTCHA     =========== */
+/* ================================================================ */
+
+/* AMPLIAMOS EL RANGO para que se active en la mayoría de móviles */
+@media (max-width: 400px) {
+    .g-recaptcha {
+        /* Hacemos el widget un poco más pequeño */
+        transform: scale(0.85); 
+        
+        /* Lo alineamos a la izquierda */
+        transform-origin: 0 0; 
+    }
 }

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del Plan - ReservaPlan</title>
-    
+    <title>Resultados de Búsqueda - ReservaPlan</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -36,14 +35,9 @@
             <li><a href="#" data-key="nav_activities">Actividades</a></li>
             <li><a href="#" data-key="nav_blog">Blog</a></li>
             <li><a href="contacto.html" data-key="nav_contact">Contacto</a></li>
-            <li class="language-selector-mobile">
-                <img src="https://flagcdn.com/es.svg" alt="Español" title="Español" class="flag" onclick="changeLanguage('es')">
-                <img src="https://flagcdn.com/gb.svg" alt="English" title="English" class="flag" onclick="changeLanguage('en')">
-                <img src="https://flagcdn.com/fr.svg" alt="Français" title="Français" class="flag" onclick="changeLanguage('fr')">
-            </li>
         </ul>
         <div class="nav-right">
-            <div class="language-selector-desktop">
+             <div class="language-selector-desktop">
                 <img src="https://flagcdn.com/es.svg" alt="Español" title="Español" class="flag" onclick="changeLanguage('es')">
                 <img src="https://flagcdn.com/gb.svg" alt="English" title="English" class="flag" onclick="changeLanguage('en')">
                 <img src="https://flagcdn.com/fr.svg" alt="Français" title="Français" class="flag" onclick="changeLanguage('fr')">
@@ -54,8 +48,11 @@
 </header>
 
 <main>
-    <div id="detalle-container">
-        </div>
+    <div class="alojamientos-container" id="search-results-page">
+        <h1 id="search-title">Resultados de Búsqueda</h1>
+        <div id="search-results-grid" class="alojamientos-grid">
+            </div>
+    </div>
 </main>
 
 <footer class="site-footer">
@@ -103,10 +100,10 @@
     </div>
 </footer>
 
-<script src="script.js"></script>
-
 <a href="https://wa.me/573163286141?text=Hola,%20vi%20tu%20página%20web%20y%20quisiera%20más%20información." class="whatsapp-float-btn" target="_blank" title="Contáctanos por WhatsApp">
     <i class='bx bxl-whatsapp'></i>
 </a>
+
+<script src="script.js"></script>
 </body>
 </html>

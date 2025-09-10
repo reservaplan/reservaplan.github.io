@@ -9,6 +9,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 
@@ -16,8 +17,8 @@
         <div class="top-bar">
             <div class="top-bar-left">
                 <span><i class='bx bxs-calendar'></i> Sábado, 23 de Agosto, 2025</span>
-                <span><i class='bx bxs-envelope'></i> <a href="mailto:info@reservatudestino.com">info@reservatudestino.com</a></span>
-                <span><i class='bx bxs-phone'></i> <a href="tel:+573001234567">+57 300 123 4567</a></span>
+                <span><i class='bx bxs-envelope'></i> <a href="mailto:info@reservatudestino.com">reservaplan@gmail.com</a></span>
+                <span><i class='bx bxs-phone'></i> <a href="tel:+573001234567">+57 316 328 6141</a></span>
             </div>
             <div class="top-bar-right">
                 <a href="#" class="booking-now-btn"><i class='bx bxs-calendar-check'></i> <b>Booking Now</b></a>
@@ -68,17 +69,17 @@
                 <div class="info-card">
                     <div class="icon-circle"><i class='bx bx-map-alt'></i></div>
                     <h3 data-key="contact_card_address_title">Dirección</h3>
-                    <p>Avenida Siempre Viva 123<br>Bogotá, Colombia</p>
+                    <p>Calle 80c #95C - 14<br>Bogotá, Colombia</p>
                 </div>
                 <div class="info-card">
                     <div class="icon-circle"><i class='bx bxs-phone-call'></i></div>
                     <h3 data-key="contact_card_phone_title">Teléfono</h3>
-                    <p>+57 300 123 4567<br>+57 601 987 6543</p>
+                    <p>+57 316 3286141</p>
                 </div>
                 <div class="info-card">
                     <div class="icon-circle"><i class='bx bxs-envelope'></i></div>
                     <h3 data-key="contact_card_email_title">Email</h3>
-                    <p>info@reservatudestino.com<br>soporte@reservatudestino.com</p>
+                    <p>reservaplan@gmail.com</p>
                 </div>
             </div>
             <div class="contact-form-section">
@@ -86,10 +87,12 @@
                     <h2 data-key="contact_form_main_title">Ponte en Contacto</h2>
                     <p data-key="contact_form_description">¿Tienes alguna pregunta o quieres reservar un tour personalizado? Déjanos un mensaje y nuestro equipo te responderá lo antes posible. ¡Estamos aquí para ayudarte a planificar tu próxima gran aventura!</p>
                 </div>
+
+
 <div class="form-container">
     <h3 data-key="form_title">Rellena el Formulario</h3>
     <p class="form-notice" data-key="contact_form_notice">Tu dirección de correo no será publicada. Los campos requeridos están marcados *</p>
-    <form action="#" method="POST">
+    <form action="https://formspree.io/f/mdklbyge" method="POST">
         <div class="input-group">
             <i class='bx bxs-user'></i>
             <input type="text" name="name" placeholder="Tu Nombre*" required data-key="form_placeholder_name">
@@ -102,7 +105,9 @@
             <i class='bx bxs-pencil'></i>
             <textarea name="message" placeholder="Escribe tu mensaje aquí..." rows="5" data-key="form_placeholder_message"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" data-key="contact_form_button">Enviar Mensaje</button>
+        <div class="g-recaptcha" data-sitekey="6LepLcUrAAAAAI1QYqe-duqvOcUWXtOz8KK22f-Q"></div> <!-- replace with your recaptcha SITE key not secret key -->
+        <br/>
+        <button type="submit" value="Submit" class="btn btn-primary" data-key="contact_form_button">Enviar Mensaje</button>
     </form>
 </div>
             </div>
