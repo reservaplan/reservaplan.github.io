@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Búsqueda - ReservaPlan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span><i class='bx bxs-calendar'></i> Miércoles, 10 de Septiembre, 2025</span>
+            <span><i class='bx bxs-envelope'></i> <a href="mailto:info@reservaplan.co">reservaplan@gmail.com</a></span>
+            <span><i class='bx bxs-phone'></i> <a href="tel:+573163286141">+57 316 328 6141</a></span>
+        </div>
+        <div class="top-bar-right">
+            <span class="follow-us" data-key="topbar_follow">Síguenos:</span>
+            <div class="social-icons">
+                <a href="#" title="Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="#" title="Twitter"><i class='bx bxl-twitter'></i></a>
+                <a href="#" title="Instagram"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="/logo-reservaplan-pro.png" alt="Logo de ReservaPlan">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#plans-section" data-key="nav_alojamientos">Alojamientos</a></li>
+            <li><a href="#" data-key="nav_activities">Actividades</a></li>
+            <li><a href="#" data-key="nav_blog">Blog</a></li>
+            <li><a href="contacto.html" data-key="nav_contact">Contacto</a></li>
+        </ul>
+        <div class="nav-right">
+             <div class="language-selector-desktop">
+                <img src="https://flagcdn.com/es.svg" alt="Español" title="Español" class="flag" onclick="changeLanguage('es')">
+                <img src="https://flagcdn.com/gb.svg" alt="English" title="English" class="flag" onclick="changeLanguage('en')">
+                <img src="https://flagcdn.com/fr.svg" alt="Français" title="Français" class="flag" onclick="changeLanguage('fr')">
+            </div>
+            <i class='bx bx-menu' id="menu-icon"></i>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="alojamientos-container" id="search-results-page">
+        <h1 id="search-title">Resultados de Búsqueda</h1>
+        <div id="search-results-grid" class="alojamientos-grid">
+            </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-column about-us">
+             <a href="index.html" class="logo-footer">
+                <img src="/logo-reservaplan-pro.png" alt="ReservaPlan Logo">
+            </a>
+            <p data-key="footer_description">Tu agencia de viajes #1 para descubrir las maravillas de Colombia. Vive experiencias inolvidables con nosotros.</p>
+        </div>
+        <div class="footer-column quick-links">
+            <h3 data-key="footer_links_title">Enlaces Rápidos</h3>
+            <ul>
+                <li><a href="index.html" data-key="footer_links_about">Sobre Nosotros</a></li>
+                <li><a href="index.html#plans-section" data-key="footer_links_tours">Alojamientos</a></li>
+                <li><a href="contacto.html" data-key="footer_links_contact">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-column gallery">
+            <h3 data-key="footer_gallery_title">Galería</h3>
+            <div class="gallery-grid">
+                <img src="https://images.pexels.com/photos/3889742/pexels-photo-3889742.jpeg" alt="Galería Eje Cafetero">
+                <img src="https://images.pexels.com/photos/1683492/pexels-photo-1683492.jpeg" alt="Galería Cartagena">
+                <img src="https://images.pexels.com/photos/10399131/pexels-photo-10399131.jpeg" alt="Galería Amazonas">
+                <img src="https://images.pexels.com/photos/1658967/pexels-photo-1658967.jpeg" alt="Galería Montaña">
+                <img src="https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg" alt="Galería Playa">
+                <img src="https://images.pexels.com/photos/2405629/pexels-photo-2405629.jpeg" alt="Galería Aventura">
+            </div>
+        </div>
+        <div class="footer-column newsletter">
+            <h3 data-key="footer_newsletter_title">Newsletter</h3>
+             <form class="newsletter-form">
+                <input type="email" placeholder="Ingresa tu correo" data-key="footer_newsletter_placeholder">
+                <button type="submit"><i class='bx bxs-send'></i></button>
+            </form>
+            <div class="terms">
+                <input type="checkbox" id="terms">
+                <label for="terms" data-key="footer_newsletter_terms">Acepto los términos y políticas.</label>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p data-key="footer_copyright">Copyright &copy; 2025 ReservaPlan.co. Todos los derechos reservados.</p>
+        <a href="#" class="back-to-top" title="Volver arriba"><i class='bx bx-up-arrow-alt'></i></a>
+    </div>
+</footer>
+
+<a href="https://wa.me/573163286141?text=Hola,%20vi%20tu%20página%20web%20y%20quisiera%20más%20información." class="whatsapp-float-btn" target="_blank" title="Contáctanos por WhatsApp">
+    <i class='bx bxl-whatsapp'></i>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
