@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Búsqueda - ReservaPlan</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
 
@@ -14,7 +15,7 @@
     <div class="top-bar">
         <div class="top-bar-left">
             <span><i class='bx bxs-calendar'></i> Miércoles, 10 de Septiembre, 2025</span>
-            <span><i class='bx bxs-envelope'></i> <a href="mailto:info@reservaplan.co">reservaplan@gmail.com</a></span>
+            <span><i class='bx bxs-envelope'></i> <a href="mailto:reservaplan@gmail.com">reservaplan@gmail.com</a></span>
             <span><i class='bx bxs-phone'></i> <a href="tel:+573163286141">+57 316 328 6141</a></span>
         </div>
         <div class="top-bar-right">
@@ -27,14 +28,14 @@
         </div>
     </div>
     <nav class="navbar">
-        <a href="index.html" class="logo">
+        <a href="/index.html" class="logo">
             <img src="/logo-reservaplan-pro.png" alt="Logo de ReservaPlan">
         </a>
         <ul class="nav-links">
-            <li><a href="index.html#plans-section" data-key="nav_alojamientos">Alojamientos</a></li>
-            <li><a href="#" data-key="nav_activities">Actividades</a></li>
-            <li><a href="#" data-key="nav_blog">Blog</a></li>
-            <li><a href="contacto.html" data-key="nav_contact">Contacto</a></li>
+            <li><a href="/#plans-section" data-key="nav_alojamientos">Alojamientos</a></li>
+            <!--<li><a href="#" data-key="nav_activities">Actividades</a></li>-->
+            <li><a href="/blog/" data-key="nav_blog">Blog</a></li>
+            <li><a href="/contacto/" data-key="nav_contact">Contacto</a></li>
         </ul>
         <div class="nav-right">
              <div class="language-selector-desktop">
@@ -48,6 +49,68 @@
 </header>
 
 <main>
+    <section class="booking-bar">
+        <form id="booking-form" class="booking-form">
+            <div class="form-group">
+                <label for="destination-select" data-key="search_destination">Destino</label>
+                <select id="destination-select">
+                    <option value="">Todos</option>
+                    <option value="CARTAGENA">Cartagena</option>
+                    <option value="SANTA MARTA">Santa Marta</option>
+                    <option value="SAN ANDRES">San Andres Islas</option>
+                    <option value="Cundinamarca">Cundinamarca</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="type-select" data-key="search_type">Tipo</label>
+                <select id="type-select">
+                    <option value="">Todos</option>
+                    <option value="Apartamento">Apartamento</option>
+                    <option value="Hotel">Hotel</option>
+                    <option value="Hostal">Hostal</option>
+                    <option value="Casa en condominio">Casa en condominio</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date-picker" data-key="search_duration">Duración</label>
+                <input type="text" id="date-picker" placeholder="Selecciona fechas">
+            </div>
+            <div class="form-group guests-container">
+                <label data-key="search_guests">Huéspedes</label>
+                <div id="guests-input" class="guests-input-display">
+                    <span id="adults-display">1</span> Adultos - <span id="children-display">0</span> Niños
+                </div>
+                <div id="guests-dropdown" class="guests-dropdown">
+                    <div class="counter-row">
+                        <span>Adultos</span>
+                        <div class="counter-control">
+                            <button type="button" class="counter-btn" data-action="decrement" data-target="adults">-</button>
+                            <span id="adults-count">1</span>
+                            <button type="button" class="counter-btn" data-action="increment" data-target="adults">+</button>
+                        </div>
+                    </div>
+                    <div class="counter-row">
+                        <span>Niños</span>
+                        <div class="counter-control">
+                            <button type="button" class="counter-btn" data-action="decrement" data-target="children">-</button>
+                            <span id="children-count">0</span>
+                            <button type="button" class="counter-btn" data-action="increment" data-target="children">+</button>
+                        </div>
+                    </div>
+                    <div class="counter-row">
+                        <span>Mascotas</span>
+                        <div class="counter-control">
+                            <button type="button" class="counter-btn" data-action="decrement" data-target="pets">-</button>
+                            <span id="pets-count">0</span>
+                            <button type="button" class="counter-btn" data-action="increment" data-target="pets">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" data-key="search_button">Buscar</button>
+        </form>
+    </section>
+
     <div class="alojamientos-container" id="search-results-page">
         <h1 id="search-title">Resultados de Búsqueda</h1>
         <div id="search-results-grid" class="alojamientos-grid">
@@ -58,17 +121,18 @@
 <footer class="site-footer">
     <div class="footer-content">
         <div class="footer-column about-us">
-             <a href="index.html" class="logo-footer">
+             <a href="/index.html" class="logo-footer">
                 <img src="/logo-reservaplan-pro.png" alt="ReservaPlan Logo">
             </a>
-            <p data-key="footer_description">Tu agencia de viajes #1 para descubrir las maravillas de Colombia. Vive experiencias inolvidables con nosotros.</p>
+            <p data-key="footer_description">Somos tu agencia de viajes, nuestro servicio es brindar: comodidad, seguridad y garantia al plan que adquieres on nosotros.</p>
         </div>
         <div class="footer-column quick-links">
             <h3 data-key="footer_links_title">Enlaces Rápidos</h3>
             <ul>
-                <li><a href="index.html" data-key="footer_links_about">Sobre Nosotros</a></li>
-                <li><a href="index.html#plans-section" data-key="footer_links_tours">Alojamientos</a></li>
-                <li><a href="contacto.html" data-key="footer_links_contact">Contacto</a></li>
+                <li><a href="#" data-key="footer_links_about">Sobre Nosotros</a></li>
+                <li><a href="/#plans-section" data-key="footer_links_tours">Alojamientos</a></li>
+                <li><a href="/contacto/" data-key="footer_links_contact">Contacto</a></li>
+                <li><a href="/terminos.html">Términos y Condiciones</a></li>
             </ul>
         </div>
         <div class="footer-column gallery">
@@ -84,7 +148,7 @@
         </div>
         <div class="footer-column newsletter">
             <h3 data-key="footer_newsletter_title">Newsletter</h3>
-             <form class="newsletter-form">
+            <form class="newsletter-form">
                 <input type="email" placeholder="Ingresa tu correo" data-key="footer_newsletter_placeholder">
                 <button type="submit"><i class='bx bxs-send'></i></button>
             </form>
@@ -100,10 +164,11 @@
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="/script.js"></script>
+
 <a href="https://wa.me/573163286141?text=Hola,%20vi%20tu%20página%20web%20y%20quisiera%20más%20información." class="whatsapp-float-btn" target="_blank" title="Contáctanos por WhatsApp">
     <i class='bx bxl-whatsapp'></i>
 </a>
-
-<script src="script.js"></script>
 </body>
 </html>

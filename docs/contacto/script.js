@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         es: {
             // -- NAVEGACIÓN Y BARRA SUPERIOR --
             nav_tours: "Tours",
-            nav_activities: "Actividades",
+            nav_activities: "Alojamientos",
             nav_blog: "Blog",
             nav_contact: "Contacto",
             topbar_follow: "Síguenos:",

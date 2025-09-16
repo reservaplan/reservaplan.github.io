@@ -4,48 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle de Alojamiento - ReservaPlan</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css"> 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" href="/assets/logo.png" type="image/x-icon">
+    <link rel="icon" href="/logo-reservaplan-pro.png" type="image/x-icon">
 </head>
 <body>
     <header class="site-header">
         <div class="top-bar">
             <div class="top-bar-left">
-                <span><i class='bx bx-calendar'></i> Miércoles, 10 de Septiembre, 2025</span>
-                <span><i class='bx bx-envelope'></i> reservaplan@gmail.com</span>
-                <span><i class='bx bx-phone'></i> +57 316 328 6941</span>
+                <span><i class='bx bxs-calendar'></i> Miércoles, 10 de Septiembre, 2025</span>
+                <span><i class='bx bxs-envelope'></i> <a href="mailto:reservaplan@gmail.com">reservaplan@gmail.com</a></span>
+                <span><i class='bx bxs-phone'></i> <a href="tel:+573163286141">+57 316 328 6141</a></span>
             </div>
             <div class="top-bar-right">
-                <span>Síguenos:</span>
+                <span data-key="topbar_follow">Síguenos:</span>
                 <div class="social-icons">
                     <a href="#"><i class='bx bxl-facebook'></i></a>
                     <a href="#"><i class='bx bxl-twitter'></i></a>
                     <a href="#"><i class='bx bxl-instagram'></i></a>
                 </div>
-                <div class="language-selector-desktop">
-                    <img src="/assets/colombia-flag.png" alt="Español" class="flag" onclick="changeLanguage('es')">
-                    <img src="/assets/usa-flag.png" alt="English" class="flag" onclick="changeLanguage('en')">
-                    <img src="/assets/france-flag.png" alt="Français" class="flag" onclick="changeLanguage('fr')">
-                </div>
             </div>
         </div>
         <nav class="navbar">
-            <a href="index.html" class="logo">
-                <img src="/assets/logo.png" alt="ReservaPlan Logo">
+             <a href="/index.html" class="logo">
+                <img src="/logo-reservaplan-pro.png" alt="ReservaPlan Logo">
             </a>
             <ul class="nav-links">
-                <li><a href="index.html" data-key="nav_alojamientos">Alojamientos</a></li>
-                <li><a href="#" data-key="nav_activities">Actividades</a></li>
-                <li><a href="#" data-key="nav_blog">Blog</a></li>
-                <li><a href="#" data-key="nav_contact">Contacto</a></li>
-                <div class="language-selector-mobile">
-                    <img src="/assets/colombia-flag.png" alt="Español" class="flag" onclick="changeLanguage('es')">
-                    <img src="/assets/usa-flag.png" alt="English" class="flag" onclick="changeLanguage('en')">
-                    <img src="/assets/france-flag.png" alt="Français" class="flag" onclick="changeLanguage('fr')">
-                </div>
+                <li><a href="/#plans-section" data-key="nav_alojamientos">Alojamientos</a></li>
+                <!--<li><a href="#" data-key="nav_activities">Actividades</a></li>-->
+                <li><a href="/blog/" data-key="nav_blog">Blog</a></li>
+                <li><a href="/contacto/" data-key="nav_contact">Contacto</a></li>
+                <li class="language-selector-mobile">
+                    <img src="https://flagcdn.com/es.svg" alt="Español" class="flag" onclick="changeLanguage('es')">
+                    <img src="https://flagcdn.com/gb.svg" alt="English" class="flag" onclick="changeLanguage('en')">
+                    <img src="https://flagcdn.com/fr.svg" alt="Français" class="flag" onclick="changeLanguage('fr')">
+                </li>
             </ul>
-            <div id="menu-icon" class='bx bx-menu'></div>
+            <div class="nav-right">
+                 <div class="language-selector-desktop">
+                    <img src="https://flagcdn.com/es.svg" alt="Español" class="flag" onclick="changeLanguage('es')">
+                    <img src="https://flagcdn.com/gb.svg" alt="English" class="flag" onclick="changeLanguage('en')">
+                    <img src="https://flagcdn.com/fr.svg" alt="Français" class="flag" onclick="changeLanguage('fr')">
+                </div>
+                <i class='bx bx-menu' id="menu-icon"></i>
+            </div>
         </nav>
     </header>
 
@@ -53,6 +55,15 @@
         <div id="detalle-container">
             </div>
     </main>
+
+    <div id="gallery-modal">
+        <span id="close-modal-btn" onclick="closeGalleryModal()">&times;</span>
+        <div id="modal-content">
+            <h2>Galería de Fotos</h2>
+            <div id="modal-grid">
+                </div>
+        </div>
+    </div>
 
     <footer class="site-footer">
         <div class="footer-content">
@@ -64,14 +75,15 @@
                 <p><i class='bx bx-envelope'></i> reservaplan@gmail.com</p>
                 <p><i class='bx bx-phone'></i> +57 316 328 6941</p>
             </div>
-            <div class="footer-column quick-links">
-                <h3 data-key="footer_links_title">Enlaces Rápidos</h3>
-                <ul>
-                    <li><a href="#" data-key="footer_links_about">Sobre Nosotros</a></li>
-                    <li><a href="index.html" data-key="footer_links_tours">Alojamientos</a></li>
-                    <li><a href="#" data-key="footer_links_contact">Contacto</a></li>
-                </ul>
-            </div>
+<div class="footer-column quick-links">
+    <h3 data-key="footer_links_title">Enlaces Rápidos</h3>
+    <ul>
+        <li><a href="#" data-key="footer_links_about">Sobre Nosotros</a></li>
+        <li><a href="/#plans-section" data-key="footer_links_tours">Alojamientos</a></li>
+        <li><a href="/contacto/" data-key="footer_links_contact">Contacto</a></li>
+        <li><a href="/terminos.html">Términos y Condiciones</a></li>
+    </ul>
+</div>
             <div class="footer-column">
                 <h3 data-key="footer_gallery_title">Galería</h3>
                 <div class="gallery-grid">
@@ -107,6 +119,6 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>

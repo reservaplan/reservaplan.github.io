@@ -272,6 +272,7 @@ main {
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .btn-primary { background-color: var(--primary-color); color: white; border: none; }
@@ -859,4 +860,461 @@ main {
 
 .btn-read-more:hover {
     text-decoration: underline;
+}
+
+/* ================================================================ */
+/* ===========      NUEVOS ESTILOS PARA PÁGINA DE DETALLE AVANZADA     =========== */
+/* ================================================================ */
+
+.detalle-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.5rem;
+    padding-top: 2rem;
+}
+
+.detalle-main h1 {
+    margin-top: 0;
+    font-size: 2.2rem;
+}
+
+.location-address {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.info-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.info-tags span {
+    background-color: #eef5f9;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.info-tags i {
+    margin-right: 0.3rem;
+    color: var(--primary-color);
+}
+
+.detalle-main h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.accommodation-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.accommodation-list li {
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.accommodation-list li::before {
+    content: '🏠';
+    margin-right: 0.7rem;
+}
+
+.rules-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.rule-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+.rule-item i { font-size: 1.5rem; }
+.rule-item em { font-weight: 400; color: #666; font-style: normal; }
+.rule-denied { color: #d9534f; }
+.rule-allowed { color: #5cb85c; }
+
+/* --- Sidebar de Reserva --- */
+.detalle-sidebar {
+    position: sticky;
+    top: 130px; /* Ajusta esto según la altura de tu header */
+    height: fit-content;
+}
+
+.price-box {
+    background-color: white;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.price-box .price-amount {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0.2rem 0;
+}
+
+.price-box .reserve-btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.sidebar-card {
+    background: #f9f9f9;
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.sidebar-card h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.sidebar-card i {
+    margin-right: 0.5rem;
+}
+
+.costs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.costs-table td {
+    padding: 0.4rem 0;
+}
+.costs-table td:nth-child(2) { font-weight: bold; text-align: right; }
+.costs-table td:nth-child(3) { color: #666; padding-left: 0.5rem; }
+
+.booking-policy {
+    background-color: #fffbe6;
+    border: 1px solid #ffe58f;
+}
+
+/* --- Estilos de Respaldo (Legacy) --- */
+.legacy-details .amenities-list {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+}
+.legacy-details .amenities-list li { margin-bottom: 0.5rem; }
+.legacy-details .amenities-list i { color: var(--primary-color); margin-right: 0.5rem; }
+
+/* --- Responsividad --- */
+@media (max-width: 992px) {
+    .detalle-grid {
+        grid-template-columns: 1fr;
+    }
+    .detalle-sidebar {
+        position: static;
+        top: auto;
+    }
+}
+@media (max-width: 480px) {
+    .rules-list {
+        grid-template-columns: 1fr;
+    }
+    .legacy-details .amenities-list {
+        columns: 1;
+    }
+}
+
+/* ================================================================ */
+/* ===========      ESTILOS PARA LA NUEVA GALERÍA INTERACTIVA     =========== */
+/* ================================================================ */
+
+.new-gallery-layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 500px; /* Altura fija para la galería */
+    gap: 10px;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.main-media-viewer {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-media-viewer .main-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen llene el contenedor sin deformarse */
+}
+
+/* Ajuste para videos verticales */
+.main-media-viewer video[src*="vertical"] { /* Asume que el nombre del video contiene "vertical" */
+    object-fit: contain; /* Mantiene las proporciones del video */
+}
+
+.thumbnails-sidebar {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.thumbnail {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.thumbnail img, .thumbnail video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail:hover img, .thumbnail:hover video {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+}
+
+.thumbnail .bx-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    padding: 0.5rem;
+    pointer-events: none; /* Para que no interfiera con el clic */
+}
+
+.more-photos-trigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-photos-trigger .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ================================================================ */
+/* ===========      ESTILOS PARA EL MODAL DE GALERÍA     =========== */
+/* ================================================================ */
+#gallery-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+#modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#close-modal-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.modal-image-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ================================================================ */
+/* ===========      AJUSTES PARA VIDEOS EN MODAL DE GALERÍA     =========== */
+/* ================================================================ */
+
+/* Renombramos el contenedor para que sea más genérico */
+.modal-media-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.modal-media-container img,
+.modal-media-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estilos para el ícono de "play" sobre los videos en el modal */
+.modal-media-container.is-video .bx-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 0 0 15px rgba(0,0,0,0.8);
+    pointer-events: none; /* Evita que el ícono bloquee futuros clics */
+}
+
+/* Reemplaza la regla anterior para mayor consistencia */
+.modal-image-container {
+    display: none; /* Ocultamos la clase antigua por si queda algún remanente */
+}
+
+/* Hacer que los elementos del modal parezcan clicables */
+.modal-media-container {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.modal-media-container:hover {
+    transform: scale(1.03); /* Efecto de zoom suave */
+}
+/* Estilos para que el iFrame de YouTube se ajuste al contenedor */
+.main-media-viewer iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* ================================================================ */
+/* ===========      ESTILOS PARA PÁGINA DE TÉRMINOS     =========== */
+/* ================================================================ */
+.terms-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+.terms-container h1 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.terms-container h2 {
+    margin-top: 2rem;
+    color: var(--primary-color);
+}
+.terms-container p, .terms-container li {
+    line-height: 1.8;
+    color: #555;
+}
+.terms-container ul {
+    padding-left: 20px;
+}
+.last-update {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 2rem;
+}
+
+/* ================================================================ */
+/* ===========      AJUSTES PARA CTA DE WHATSAPP SIN PRECIOS     =========== */
+/* ================================================================ */
+
+/* Estilos para la tarjeta de vista previa (Homepage y Búsqueda) */
+.plan-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card-link {
+    text-decoration: none;
+    color: inherit;
+    flex-grow: 1; /* Permite que el contenido principal crezca */
+}
+
+.plan-card-cta {
+    padding: 0 1.5rem 1.5rem 1.5rem; /* Espaciado para el botón */
+}
+
+.plan-card-cta .cta-button {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+
+.cta-button i {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Estilos para la caja de CTA en la página de detalles */
+.price-box.cta-box {
+    text-align: center;
+}
+
+.price-box.cta-box h4 {
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.price-box.cta-box p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+    color: #666;
 }
