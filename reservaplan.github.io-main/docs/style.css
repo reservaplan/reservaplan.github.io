@@ -1,0 +1,1320 @@
+/* ======== ESTILOS GENERALES Y VARIABLES ======== */
+:root {
+    --primary-color: #1a7bba;
+    --secondary-color: #343a40;
+    --background-color: #ffffff;
+    --light-gray-color: #f8f9fa;
+    --font-family: 'Poppins', sans-serif;
+    --accent-orange: #f29335; /* Color naranja para destacar */
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    color: var(--secondary-color);
+    background-color: var(--background-color);
+}
+
+/* ======== HEADER Y NAVEGACIÓN (Consolidado) ======== */
+.site-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.top-bar {
+    background-color: #f0f0f0;
+    padding: 0.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-bar-left, .top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.top-bar a {
+    color: #555;
+    text-decoration: none;
+}
+
+.top-bar i {
+    color: var(--primary-color);
+    margin-right: 0.3rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.social-icons i {
+    font-size: 1.2rem;
+    margin-right: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 5%;
+}
+
+.logo img {
+    height: 60px;
+    vertical-align: middle;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.flag {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#menu-icon {
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+
+
+/* ================================================================ */
+/* ===========      CORRECCIÓN SELECTOR DE IDIOMA       =========== */
+/* ================================================================ */
+
+/* ESTADO POR DEFECTO (ESCRITORIO) */
+/* Ocultamos el selector de idioma móvil por defecto. */
+.language-selector-mobile {
+    display: none;
+}
+
+/* CUANDO LA PANTALLA SEA DE 992PX O MENOS (MÓVIL) */
+@media (max-width: 992px) {
+    /* Ocultamos la versión de escritorio. */
+    .language-selector-desktop {
+        display: none;
+    }
+
+    /* Mostramos la versión móvil, que está dentro de la lista del menú. */
+    /* Usamos 'flex' para que las banderas se alineen horizontalmente. */
+    .language-selector-mobile {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #f0f0f0;
+    }
+}
+
+/* ======== SECCIONES PRINCIPALES ======== */
+main {
+    padding-top: 110px;
+}
+
+.hero {
+    height: 40vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/hero-banner-img.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 2rem 5%;
+    box-sizing: border-box;
+}
+
+.hero-content { max-width: 800px; }
+.hero-content h1 { font-size: 3.2rem; margin: 0; line-height: 1.2; }
+.hero-content h2 { font-size: 1.6rem; color: var(--primary-color); margin: 0.5rem 0 1rem; }
+.hero-content p { font-size: 1.1rem; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+
+/* ================================================================ */
+/* ===========        ESTILOS PARA LA BARRA DE BÚSQUEDA       =========== */
+/* ================================================================ */
+.booking-bar {
+    padding: 2rem 5%;
+    background-color: #eef5f9;
+}
+
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    align-items: flex-end;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.form-group label { 
+    font-weight: 600; 
+    font-size: 0.9rem;
+}
+.form-group input, .form-group select { 
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+}
+
+.booking-form .btn-primary {
+    width: 100%;
+    padding: 0.75rem;
+}
+
+@media (min-width: 1200px) {
+    .booking-form {
+        grid-template-columns: repeat(5, 1fr); /* 4 campos + 1 botón */
+    }
+    .booking-form .btn-primary {
+        grid-column: auto;
+    }
+}
+
+/* Selector de huéspedes */
+.guests-container {
+    position: relative;
+}
+.guests-input-display {
+    cursor: pointer;
+    user-select: none;
+}
+.guests-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 250px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    padding: 1rem;
+    z-index: 10;
+    margin-top: 5px;
+    display: none;
+}
+.guests-dropdown.active {
+    display: block;
+}
+.counter-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.counter-row:last-child {
+    margin-bottom: 0;
+}
+.counter-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.counter-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+.counter-btn:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.btn-primary { background-color: var(--primary-color); color: white; border: none; }
+.btn-primary:hover { background-color: #f29335; }
+.btn-secondary { background-color: white; color: var(--primary-color); border: 1px solid var(--primary-color); }
+.btn-secondary:hover { background-color: #eef5f9; }
+
+/* ======== SECCIÓN DE ALOJAMIENTOS ======== */
+.alojamientos-container {
+    padding: 4rem 5%;
+}
+
+/* ================================================================ */
+/* ====   NUEVOS ESTILOS PARA CONTENEDORES INTERACTIVOS   ==== */
+/* ================================================================ */
+
+.location-category {
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.location-header {
+    padding: 3rem 2rem;
+    cursor: pointer;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.location-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 100%);
+    z-index: 1;
+}
+
+.location-header:hover {
+    transform: scale(1.02);
+}
+
+/* Asignación de imágenes a cada cabecera */
+[data-target="#cartagena-plans"] { background-image: url('/assets/cartagena-turistico-muralla-mar.JPG'); }
+[data-target="#santa-marta-plans"] { background-image: url('/assets/santamarta-turistico-playa-blanca.JPG'); }
+[data-target="#islas-plans"] { background-image: url('/assets/san-andres-islas-turistico-mar.JPG'); }
+[data-target="#cundinamarca-plans"] { background-image: url('https://images.pexels.com/photos/1658967/pexels-photo-1658967.jpeg'); }
+[data-target="#pereira-plans"] { background-image: url('https://images.pexels.com/photos/1658967/pexels-photo-1658967.jpeg'); }
+
+.location-header h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.location-header::after {
+    content: '\ea4a'; /* Icono de "plus" de Boxicons */
+    font-family: 'Boxicons';
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    font-size: 2.5rem;
+    transition: transform 0.4s ease;
+}
+
+.location-header.active::after {
+    transform: translateY(-50%) rotate(45deg); /* Gira el "plus" para parecer un "close" */
+}
+
+.plans-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out, padding 0.5s ease;
+    background-color: var(--light-gray-color);
+}
+
+.plans-content.active {
+    max-height: 2000px; /* Un valor grande para permitir que el contenido se expanda */
+    padding: 2rem 0;
+}
+
+.alojamientos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.plan-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.plan-card:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+.plan-card img { width: 100%; height: 200px; object-fit: cover; }
+.plan-info { padding: 1.5rem; }
+.plan-info .location { font-size: 0.9rem; color: #888; text-transform: uppercase; }
+.plan-info h3 { margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 1.3rem; }
+.plan-info .type-badge { background-color: var(--primary-color); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 1rem; }
+.plan-info .price { font-size: 1.2rem; font-weight: bold; color: var(--primary-color); margin-top: 1rem; }
+
+/* ================================================================ */
+/* ===========      ESTILOS PARA PÁGINA DE DETALLE (REFERENCIA MARRIOTT)      =========== */
+/* ================================================================ */
+#detalle-container {
+    display: flex; /* Usamos flexbox para el layout principal */
+    flex-direction: column; /* Apilar la galería y la información */
+    gap: 2rem;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Sección superior de galería */
+.detalle-header-galeria {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Una columna más ancha para la imagen principal, una más estrecha para miniaturas */
+    gap: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    height: 400px; /* Altura fija para la galería superior */
+}
+
+.main-media-wrapper {
+    grid-column: 1 / 2; /* Ocupa la primera columna */
+    height: 100%;
+}
+
+.main-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.thumbnail-grid {
+    grid-column: 2 / 3; /* Ocupa la segunda columna */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas para las miniaturas */
+    grid-template-rows: repeat(2, 1fr); /* Dos filas para las miniaturas */
+    gap: 10px;
+}
+
+.thumbnail-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.thumbnail-grid img:hover {
+    transform: scale(1.03);
+}
+
+.more-photos {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden; /* Asegura que la imagen de fondo no se desborde */
+}
+
+.more-photos img {
+    filter: brightness(0.7); /* Oscurece la imagen para que el texto sea visible */
+    transition: filter 0.3s ease;
+}
+.more-photos:hover img {
+    filter: brightness(0.5);
+}
+
+.more-photos .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* El filtro en la imagen ya la oscurece */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Sección de información principal y sidebar (similar a Marriott) */
+.detalle-info-marriott {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Contenido principal y sidebar */
+    gap: 2rem;
+}
+
+
+.detalle-main-content h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.location-address {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.price-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.price-section .price {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.price-section .reserve-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+
+.description {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.detalle-main-content h3 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: #eef5f9; /* Fondo claro para los servicios */
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.amenity-item i {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.amenity-item.pet-friendly i {
+    color: #d1b000; /* Un color diferente para el ícono de mascotas */
+}
+
+/* Sidebar de la página de detalle (inspirado en Marriott) */
+.detalle-sidebar-marriott {
+    background-color: var(--light-gray-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.rating-box {
+    text-align: center;
+    background-color: var(--primary-color); /* Fondo azul como en Marriott */
+    color: white;
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.rating-box span {
+    display: block;
+}
+
+.rating-box .rating-score {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.rating-box .reviews-count {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.highlights-box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+}
+
+.highlights-box h4 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.highlights-box p {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.reviewer-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.reviewer-name i {
+    font-size: 1.2rem;
+    color: #888;
+}
+
+.flag-inline {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.excellent-location {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+    font-weight: 500;
+}
+
+.excellent-location span:first-child {
+    color: #4CAF50; /* Verde para "Excelente ubicación" */
+}
+
+.excellent-location .location-score {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.map-box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.map-box .map-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.map-box .view-map-btn {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+
+/* ======== FOOTER ======== */
+.site-footer {
+    background-color: #222222;
+    color: #a9a9a9;
+    padding: 4rem 5% 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #444;
+}
+
+.footer-column h3 { color: #ffffff; font-size: 1.2rem; margin-bottom: 1.5rem; }
+.logo-footer img { height: 40px; width: auto; }
+.footer-column p { margin-bottom: 0.8rem; line-height: 1.6; }
+.footer-column p i { color: var(--primary-color); margin-right: 0.5rem; }
+.quick-links ul { list-style: none; padding: 0; }
+.quick-links a { color: #a9a9a9; text-decoration: none; display: block; margin-bottom: 0.8rem; transition: color 0.3s, transform 0.3s; }
+.quick-links a:hover { color: var(--primary-color); transform: translateX(5px); }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.gallery-grid img { width: 100%; height: 70px; object-fit: cover; border-radius: 8px; transition: transform 0.3s; }
+.gallery-grid img:hover { transform: scale(1.1); }
+.newsletter-form { display: flex; position: relative; margin-bottom: 1rem; }
+.newsletter-form input[type="email"] { width: 100%; padding: 0.8rem; background-color: #333; border: 1px solid #555; color: white; border-radius: 50px; }
+.newsletter-form button { position: absolute; right: 5px; top: 5px; bottom: 5px; background-color: var(--primary-color); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; }
+.terms { display: flex; align-items: center; font-size: 0.9rem; margin-bottom: 1.5rem; }
+.terms input { margin-right: 0.5rem; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; font-size: 0.9rem; }
+.back-to-top { background-color: var(--primary-color); color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none; font-size: 1.5rem; }
+
+/* ======== BOTÓN FLOTANTE DE WHATSAPP ======== */
+.whatsapp-float-btn {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ======== DISEÑO RESPONSIVE ======== */
+@media (max-width: 992px) {
+    main { padding-top: 115px; }
+    .top-bar { display: none; }
+    .language-selector-desktop { display: none; }
+    .language-selector-mobile { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #f0f0f0; }
+    .nav-links { position: absolute; top: 100%; left: -100%; width: 100%; background-color: white; flex-direction: column; text-align: center; padding: 1rem 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: left 0.3s ease; }
+    .nav-links.active { left: 0; }
+    #menu-icon { display: block; }
+    .hero { height: 50vh; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .location-header h2 { font-size: 2rem; }
+
+    /* Responsive para la galería de detalle */
+    .detalle-header-galeria {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        height: auto;
+    }
+    .main-media-wrapper {
+        grid-column: auto;
+    }
+    .thumbnail-grid {
+        grid-column: auto;
+        margin-top: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Miniaturas más pequeñas y flexibles */
+        height: auto;
+    }
+
+    /* Responsive para la sección de información */
+    .detalle-info-marriott {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+    }
+    .price-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .price-section .reserve-btn {
+        width: 100%;
+    }
+    .amenities-grid {
+        grid-template-columns: 1fr; /* Una sola columna para los servicios en móvil */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero { height: 60vh; }
+    .hero-content h1 { font-size: 2rem; }
+    .location-header h2 { font-size: 2rem; }
+    .rating-box .rating-score { font-size: 2.5rem; }
+}
+
+/* ================================================================ */
+/* ===========           ESTILOS PARA LA PÁGINA DE BLOG           =========== */
+/* ================================================================ */
+
+/* Hero para páginas interiores como el blog */
+.page-hero {
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.blog-section {
+    padding: 4rem 5%;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.post-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.post-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 1.5rem;
+}
+
+.post-category {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.post-content h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.post-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.btn-read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-read-more:hover {
+    text-decoration: underline;
+}
+
+/* ================================================================ */
+/* ===========      NUEVOS ESTILOS PARA PÁGINA DE DETALLE AVANZADA     =========== */
+/* ================================================================ */
+
+.detalle-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.5rem;
+    padding-top: 2rem;
+}
+
+.detalle-main h1 {
+    margin-top: 0;
+    font-size: 2.2rem;
+}
+
+.location-address {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.info-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.info-tags span {
+    background-color: #eef5f9;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.info-tags i {
+    margin-right: 0.3rem;
+    color: var(--primary-color);
+}
+
+.detalle-main h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.accommodation-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.accommodation-list li {
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.accommodation-list li::before {
+    content: '🏠';
+    margin-right: 0.7rem;
+}
+
+.rules-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.rule-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+.rule-item i { font-size: 1.5rem; }
+.rule-item em { font-weight: 400; color: #666; font-style: normal; }
+.rule-denied { color: #d9534f; }
+.rule-allowed { color: #5cb85c; }
+
+/* --- Sidebar de Reserva --- */
+.detalle-sidebar {
+    position: sticky;
+    top: 130px; /* Ajusta esto según la altura de tu header */
+    height: fit-content;
+}
+
+.price-box {
+    background-color: white;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.price-box .price-amount {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0.2rem 0;
+}
+
+.price-box .reserve-btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.sidebar-card {
+    background: #f9f9f9;
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.sidebar-card h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.sidebar-card i {
+    margin-right: 0.5rem;
+}
+
+.costs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.costs-table td {
+    padding: 0.4rem 0;
+}
+.costs-table td:nth-child(2) { font-weight: bold; text-align: right; }
+.costs-table td:nth-child(3) { color: #666; padding-left: 0.5rem; }
+
+.booking-policy {
+    background-color: #fffbe6;
+    border: 1px solid #ffe58f;
+}
+
+/* --- Estilos de Respaldo (Legacy) --- */
+.legacy-details .amenities-list {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+}
+.legacy-details .amenities-list li { margin-bottom: 0.5rem; }
+.legacy-details .amenities-list i { color: var(--primary-color); margin-right: 0.5rem; }
+
+/* --- Responsividad --- */
+@media (max-width: 992px) {
+    .detalle-grid {
+        grid-template-columns: 1fr;
+    }
+    .detalle-sidebar {
+        position: static;
+        top: auto;
+    }
+}
+@media (max-width: 480px) {
+    .rules-list {
+        grid-template-columns: 1fr;
+    }
+    .legacy-details .amenities-list {
+        columns: 1;
+    }
+}
+
+/* ================================================================ */
+/* ===========      ESTILOS PARA LA NUEVA GALERÍA INTERACTIVA     =========== */
+/* ================================================================ */
+
+.new-gallery-layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 500px; /* Altura fija para la galería */
+    gap: 10px;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.main-media-viewer {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-media-viewer .main-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen llene el contenedor sin deformarse */
+}
+
+/* Ajuste para videos verticales */
+.main-media-viewer video[src*="vertical"] { /* Asume que el nombre del video contiene "vertical" */
+    object-fit: contain; /* Mantiene las proporciones del video */
+}
+
+.thumbnails-sidebar {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.thumbnail {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.thumbnail img, .thumbnail video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail:hover img, .thumbnail:hover video {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+}
+
+.thumbnail .bx-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    padding: 0.5rem;
+    pointer-events: none; /* Para que no interfiera con el clic */
+}
+
+.more-photos-trigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-photos-trigger .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ================================================================ */
+/* ===========      ESTILOS PARA EL MODAL DE GALERÍA     =========== */
+/* ================================================================ */
+#gallery-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+#modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#close-modal-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.modal-image-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ================================================================ */
+/* ===========      AJUSTES PARA VIDEOS EN MODAL DE GALERÍA     =========== */
+/* ================================================================ */
+
+/* Renombramos el contenedor para que sea más genérico */
+.modal-media-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.modal-media-container img,
+.modal-media-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estilos para el ícono de "play" sobre los videos en el modal */
+.modal-media-container.is-video .bx-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 0 0 15px rgba(0,0,0,0.8);
+    pointer-events: none; /* Evita que el ícono bloquee futuros clics */
+}
+
+/* Reemplaza la regla anterior para mayor consistencia */
+.modal-image-container {
+    display: none; /* Ocultamos la clase antigua por si queda algún remanente */
+}
+
+/* Hacer que los elementos del modal parezcan clicables */
+.modal-media-container {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.modal-media-container:hover {
+    transform: scale(1.03); /* Efecto de zoom suave */
+}
+/* Estilos para que el iFrame de YouTube se ajuste al contenedor */
+.main-media-viewer iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* ================================================================ */
+/* ===========      ESTILOS PARA PÁGINA DE TÉRMINOS     =========== */
+/* ================================================================ */
+.terms-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+.terms-container h1 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.terms-container h2 {
+    margin-top: 2rem;
+    color: var(--primary-color);
+}
+.terms-container p, .terms-container li {
+    line-height: 1.8;
+    color: #555;
+}
+.terms-container ul {
+    padding-left: 20px;
+}
+.last-update {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 2rem;
+}
+
+/* ================================================================ */
+/* ===========      AJUSTES PARA CTA DE WHATSAPP SIN PRECIOS     =========== */
+/* ================================================================ */
+
+/* Estilos para la tarjeta de vista previa (Homepage y Búsqueda) */
+.plan-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card-link {
+    text-decoration: none;
+    color: inherit;
+    flex-grow: 1; /* Permite que el contenido principal crezca */
+}
+
+.plan-card-cta {
+    padding: 0 1.5rem 1.5rem 1.5rem; /* Espaciado para el botón */
+}
+
+.plan-card-cta .cta-button {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+
+.cta-button i {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Estilos para la caja de CTA en la página de detalles */
+.price-box.cta-box {
+    text-align: center;
+}
+
+.price-box.cta-box h4 {
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.price-box.cta-box p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+    color: #666;
+}
